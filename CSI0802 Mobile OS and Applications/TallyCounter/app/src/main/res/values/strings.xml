@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TallyCounter</string>
+
+    <string name="counter">Count</string>
+    <string name="reset">Reset</string>
+    <string name="def">0</string>
+    <string name="svd">Saved</string>
+</resources>
