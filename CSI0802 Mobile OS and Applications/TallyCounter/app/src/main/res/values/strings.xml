@@ -5,4 +5,7 @@
     <string name="reset">Reset</string>
     <string name="def">0</string>
     <string name="svd">Saved</string>
+    <string name="mainactivity">MainActivity</string>
+    <string name="setting">Setting</string>
+    <string name="about">About</string>
 </resources>

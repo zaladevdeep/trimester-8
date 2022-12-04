@@ -1,46 +1,37 @@
 package com.example.tallycounter;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-
 public class MainActivity extends AppCompatActivity {
+    public void fnc(View v){
+        int qt = Integer.parseInt(txtv.getText().toString())+1;
+        String a = Integer.toString(qt);
+        txtv.setText(a);
+
+        int counter = Integer.parseInt(txtv.getText().toString());
+        String c = txtv2.getText().toString();
+        int counter2 = Integer.parseInt(c);
+
+        if((counter)%108==0){
+            c = Integer.toString(counter2+1);
+        }
+
+        txtv2.setText(c);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setUI();
-
-        cnt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String a = Integer.toString(Integer.parseInt(txtv.getText().toString()) + 1);
-                txtv.setText(a);
-
-                int counter = Integer.parseInt(txtv.getText().toString());
-                String c = txtv2.getText().toString();
-                int counter2 = Integer.parseInt(c);
-
-                if((counter)%7==0){
-                    c = Integer.toString(counter2+1);
-                }
-
-                txtv2.setText(c);
-            }
-        });
 
         rst.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,35 +42,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        svd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveData();
-            }
-        });
-
         loadData();
         updateViews();
     }
 
     private TextView txtv, txtv2;
-    private Button cnt;
     private Button rst;
-    private Button svd;
 
     public void setUI() {
         txtv = findViewById(R.id.text1);
-        cnt = findViewById(R.id.button);
         rst = findViewById(R.id.button2);
         txtv2 = findViewById(R.id.text5);
-        svd = findViewById(R.id.button3);
     }
 
     public static final String SHARED_PREFS = "sharedPrefs";
     public static final String TEXT = "text";
-
     private String text;
-    public void saveData(){
+
+    public void saveData(View v){
         SharedPreferences sp = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
@@ -97,4 +77,26 @@ public class MainActivity extends AppCompatActivity {
         txtv2.setText(text);
 
     }
+
+
+
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_VOLUME_UP:
+            case KeyEvent.KEYCODE_VOLUME_DOWN:
+                if(event.getAction()==KeyEvent.ACTION_UP) {
+                    fnc(null);
+                }
+                break;
+            default:
+                super.dispatchKeyEvent(event);
+                break;
+        }
+
+        return true;
+    }
+
+
 }

@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="102dp"
         android:text="@string/def"
+        android:fontFamily="@font/fontt1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -24,12 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/counter"
+        android:onClick="fnc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.357"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467"/>
+        app:layout_constraintVertical_bias="0.467" />
 
     <Button
         android:id="@+id/button2"
@@ -49,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="@string/def"
         android:textSize="70dp"
+        android:fontFamily="@font/fontt2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/svd"
+        android:onClick="saveData"
         app:layout_constraintBottom_toTopOf="@+id/text5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
